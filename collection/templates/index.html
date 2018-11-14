@@ -1,14 +1,15 @@
-{% load statusfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Hello Web App Project</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load humanize %}
+{% block title %}
+    Homepage - {{ block.super }}
+{% endblock title %}
+
+{% block content %}
     <h1>Hello World!</h1>
-    <p>I am a basic website.</p>
-</body>
-</html>
+    <p>{{ number }}</p>
+    <p>There are {{ number|apnumber }} dogs!</p>
+    <p>This is my name: {{ thing }}</p>
+    <p>This is my name: {{ thing|slugify }}</p>
+    <p>This is my name: {{ thing|title }}</p>
+    <p>This is my name: {{ thing|truncatewords:1 }}</p>
+{% endblock content %}
