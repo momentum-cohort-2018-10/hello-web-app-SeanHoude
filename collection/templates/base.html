@@ -1,5 +1,5 @@
 {% load staticfiles %}
-{% load humanize %}
+{% comment %} {% load humanize %} {% endcomment %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +8,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>
         {% block title %}
-            My Hello Web App Project
+            Climbing Shoes
         {% endblock title %}
     </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     {% block header %}{% endblock header %}
 </head>
 <body>
     <header>
-        <h1>Hello Web App</h1>
+        <h1>Climbing Shoes</h1>
         <nav>
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
@@ -27,5 +28,6 @@
     </header>
     {% block content %} {% endblock content %}
     {% block footer %} {% endblock footer %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
