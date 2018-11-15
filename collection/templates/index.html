@@ -5,11 +5,15 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>Hello World!</h1>
+    {% for ClimbingShoe in ClimbingShoes %}
+    <h2>{{ ClimbingShoe.name }}</h2>
+    <p>{{ ClimbingShoe.description }}</p>
+    {% endfor %}
+    {% comment %} <h1>Hello World!</h1>
     <p>{{ number }}</p>
     <p>There are {{ number|apnumber }} dogs!</p>
     <p>This is my name: {{ thing }}</p>
     <p>This is my name: {{ thing|slugify }}</p>
     <p>This is my name: {{ thing|title }}</p>
-    <p>This is my name: {{ thing|truncatewords:1 }}</p>
+    <p>This is my name: {{ thing|truncatewords:1 }}</p> {% endcomment %}
 {% endblock content %}
