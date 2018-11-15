@@ -26,5 +26,7 @@ urlpatterns = [
     path('contact/',
          TemplateView.as_view(template_name='contact.html'),
          name='contact'),
+    path('climbingshoes/<slug>/', views.climbingshoe_detail,
+         name='climbingshoe_detail'),
     path('admin/', admin.site.urls),
 ]
