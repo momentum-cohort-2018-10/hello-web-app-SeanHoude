@@ -1,6 +1,5 @@
-{% load staticfiles %}
-{% comment %} {% load humanize %} {% endcomment %}
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,23 +10,24 @@
             Climbing Shoes
         {% endblock title %}
     </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     {% block header %}{% endblock header %}
 </head>
 <body>
     <header>
+        <img src="../static/images/climbing-clouds.jpg">
         <h1>Climbing Shoes</h1>
         <nav>
-            <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
+            <ul class="columns">
+                <li class="column is-1"><a href="{% url 'home' %}">Home</a></li>
+                <li class="column is-1"><a href="{% url 'about' %}">About</a></li>
+                <li class="column is-1"><a href="{% url 'contact' %}">Contact</a></li>
             </ul>
         </nav>
     </header>
     {% block content %} {% endblock content %}
     {% block footer %} {% endblock footer %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

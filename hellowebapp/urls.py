@@ -28,5 +28,7 @@ urlpatterns = [
          name='contact'),
     path('climbingshoes/<slug>/', views.climbingshoe_detail,
          name='climbingshoe_detail'),
+    path('climbingshoes/<slug>/edit/',
+         views.edit_climbingshoe, name='edit_climbingshoe'),
     path('admin/', admin.site.urls),
 ]

@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
-{% load humanize %}
 {% block title %}
     Homepage - {{ block.super }}
 {% endblock title %}
 
 {% block content %}
-    {% for ClimbingShoe in ClimbingShoes %}
-    <h2><a href="{% url 'climbingshoe_detail' slug=ClimbingShoe.slug %}">
-    {{ ClimbingShoe.name }}</a></h2>
-    <p>{{ ClimbingShoe.description }}</p>
-    {% endfor %}
+    <div class="columns">
+        {% for climbingshoe in climbingshoes %}
+            <div class="column is-one-third">
+                <h2><a href="{% url 'climbingshoe_detail' slug=climbingshoe.slug %}">
+                {{ climbingshoe.name }}</a></h2>
+                <p>{{ climbingshoe.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}

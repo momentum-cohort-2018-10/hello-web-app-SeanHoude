@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% block title %}
-    {{ ClimbingShoe.name}} - {{ block.super }}
+    {{ climbingshoe.name}} - {{ block.super }}
 {% endblock title %}
 
 {% block content %}
-    <h1>{{ ClimbingShoe.name }}</h1>
-    <p>{{ ClimbingShoe.description }}</p>
+    <h1>{{ climbingshoe.name }}</h1>
+    <p>{{ climbingshoe.description }}</p>
+    <a href="{% url 'edit_climbingshoe' slug=climbingshoe.slug %}">
+        Edit me!
+        </a>
 {% endblock content %}
