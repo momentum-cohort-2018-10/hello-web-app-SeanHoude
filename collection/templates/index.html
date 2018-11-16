@@ -4,9 +4,9 @@
 {% endblock title %}
 
 {% block content %}
-    <div class="columns">
+    <div class="grid-x grid-padding-x">
         {% for climbingshoe in climbingshoes %}
-            <div class="column is-one-third">
+            <div class="cell medium-6 large-4">
                 <h2><a href="{% url 'climbingshoe_detail' slug=climbingshoe.slug %}">
                 {{ climbingshoe.name }}</a></h2>
                 <p>{{ climbingshoe.description }}</p>

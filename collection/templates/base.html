@@ -10,9 +10,9 @@
             Climbing Shoes
         {% endblock title %}
     </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/foundation.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     {% block header %}{% endblock header %}
 </head>
 <body>
@@ -20,20 +20,22 @@
         <img src="../static/images/climbing-clouds.jpg">
         <h1>Climbing Shoes</h1>
         <nav>
-            <ul class="columns">
-                <li class="column is-1"><a href="{% url 'home' %}">Home</a></li>
-                <li class="column is-1"><a href="{% url 'about' %}">About</a></li>
-                <li class="column is-1"><a href="{% url 'contact' %}">Contact</a></li>
+            <ul class="menu menu-hover-lines">
+                <li class=""><a href="{% url 'home' %}">Home</a></li>
+                <li class=""><a href="{% url 'about' %}">About</a></li>
+                <li class=""><a href="{% url 'contact' %}">Contact</a></li>
                 {% if user.is_authenticated %}
-                <li class="column is-1"><a href="{% url 'auth_logout' %}">Logout<a/></li>
+                    <li class=""><a href="{% url 'auth_logout' %}">Logout<a/></li>
                 {% else %}
-                <li class="column is-1"><a href="{% url 'auth_login' %}">Login<a/></li>
-                <li class="column is-1"><a href="{% url 'registration_register' %}">Register<a/></li>
+                    <li class=""><a href="{% url 'auth_login' %}">Login<a/></li>
+                    <li class=""><a href="{% url 'registration_register' %}">Register<a/></li>
                 {% endif %}
             </ul>
         </nav>
     </header>
     {% block content %} {% endblock content %}
     {% block footer %} {% endblock footer %}
+<script src="{% static 'js/vendor/jquery.js' %}"></script>
+<script src="{% static 'js/vendor/foundation.min.js' %}"></script>
 </body>
 </html>
