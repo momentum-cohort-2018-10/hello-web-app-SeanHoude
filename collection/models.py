@@ -1,11 +1,8 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 class ClimbingShoe(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
     slug = models.SlugField(unique=True)
-    # image = models.ImageField(max_length=50)
-    # image = models.FilePathField(max_length=255, null=True, blank=True)
-
-    # (IntegerField, CharField, BooleanField, FloatField, TextField)
+    user = models.ForeignKey(User, on_delete=models.PROTECT, blank=True, null=True)

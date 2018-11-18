@@ -17,13 +17,16 @@
 </head>
 <body>
     <header>
-        <img src="../static/images/climbing-clouds.jpg">
+    <div class="header-image">
+        <img src="{% static 'images/climbing-clouds.jpg' %}">
+    </div>
         <h1>Climbing Shoes</h1>
         <nav>
             <ul class="menu menu-hover-lines">
                 <li class=""><a href="{% url 'home' %}">Home</a></li>
                 <li class=""><a href="{% url 'about' %}">About</a></li>
                 <li class=""><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'browse' %}">Browse articles</a></li>
                 {% if user.is_authenticated %}
                     <li class=""><a href="{% url 'auth_logout' %}">Logout<a/></li>
                 {% else %}

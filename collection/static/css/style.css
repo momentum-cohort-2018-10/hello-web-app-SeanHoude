@@ -5,6 +5,10 @@ body {
     background-repeat: no-repeat; */
 }
 
+.header-image {
+    max-height: 100px;
+    height: 100px;
+}
 .columns {
     flex-wrap: wrap
 }

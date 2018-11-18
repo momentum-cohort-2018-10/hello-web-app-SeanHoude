@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, RedirectView
 from collection import views
+from collection.backends import MyRegistrationView
 from django.contrib.auth.views import (
     PasswordResetView,
     PasswordResetDoneView,
@@ -32,10 +33,16 @@ urlpatterns = [
     path('contact/',
          TemplateView.as_view(template_name='contact.html'),
          name='contact'),
+    path('browse/', RedirectView.as_view(pattern_name='browse', permanent=True)),
+    path('browse/name/', views.browse_by_name, name='browse'),
+    path('browse/name/<initial>/', views.browse_by_name, name='browse_by_name'),
+    path('climbingshoes/', RedirectView.as_view(pattern_name='browse', permanent=True)),
     path('climbingshoes/<slug>/', views.climbingshoe_detail,
          name='climbingshoe_detail'),
     path('climbingshoes/<slug>/edit/',
          views.edit_climbingshoe, name='edit_climbingshoe'),
+    path('browse/name/', views.browse_by_name, name='browse'),
+    path('browse/name/<initial>/', views.browse_by_name, name='browse_by_name'),
     path('accounts/password/reset/',
          PasswordResetView.as_view(template_name='registration/password_reset_form.html'),
          name="password_reset"),
@@ -48,6 +55,8 @@ urlpatterns = [
     path('accounts/password/done/',
          PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'),
          name="password_reset_complete"),
+    path('accounts/register/', MyRegistrationView.as_view(), name='registration_register'),
+    path('accounts/create_climbingshoe/', views.create_climbingshoe, name='registration_create_climbingshoe'), 
     path('accounts/', include('registration.backends.simple.urls')),
     path('admin/', admin.site.urls),
 ]
